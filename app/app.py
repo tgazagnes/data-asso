@@ -196,5 +196,8 @@ with tab3:
 #                    color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop'])
     )
     fig.update_layout(margin = dict(t=50, l=25, r=25, b=25),
-                      textinfo = 'label+text+value')
+                        autosize=True,
+#                        height=600
+    )
+    fig.update_traces(textinfo = 'label+text+value')
     st.plotly_chart(fig, use_container_width=True)
