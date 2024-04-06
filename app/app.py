@@ -113,7 +113,7 @@ with tab1:
     fig.update_traces(textposition="inside")
     fig.update_layout(
         autosize=True,
-        uniformtext_minsize=8,
+        uniformtext_minsize=10,
         uniformtext_mode="hide",
         showlegend=False,
         yaxis_title=None
@@ -133,7 +133,7 @@ with tab1:
     fig2.update_traces(textposition="inside")
     fig2.update_layout(
         autosize=True,
-        uniformtext_minsize=8,
+        uniformtext_minsize=10,
         uniformtext_mode="hide",
         showlegend=False,
         xaxis_title="Nombre de structures bénéficiaires",
@@ -179,7 +179,7 @@ with tab2:
     fig.update_layout(
         autosize=True,
         height=600,
-        uniformtext_minsize=8,
+        uniformtext_minsize=10,
         uniformtext_mode="hide",
         showlegend=True,
         xaxis_title="Montant des subventions accordées en 2022",
@@ -189,7 +189,7 @@ with tab2:
             yanchor="bottom",
             y = 0.01,
             xanchor="left",
-            x = 0.7)
+            x = 0.5)
     )
     st.plotly_chart(fig, use_container_width=True)
 
