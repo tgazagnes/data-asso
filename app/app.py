@@ -189,7 +189,7 @@ with tab2:
             yanchor="bottom",
             y = 0.01,
             xanchor="left",
-            x = 0.9)
+            x = 0.7)
     )
     st.plotly_chart(fig, use_container_width=True)
 
