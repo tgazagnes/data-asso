@@ -25,9 +25,7 @@ Analyses des subventions accordées aux acteurs associatifs en 2022 (territoire 
 """
 )
 
-df = pd.read_parquet(
-    os.path.join("/data", "base_consolidee.parquet")
-)
+df = pd.read_parquet("data/base_consolidee.parquet")
 
 # Copie des données pour transfo
 df_total = df.copy()
