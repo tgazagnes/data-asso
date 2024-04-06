@@ -158,6 +158,7 @@ with tab2:
     st.write("")
 
     df_financeur_benef = df_total.groupby(["Financeur", "Bénéficiaire"], as_index = False)["Montant"].sum().sort_values(by = "Montant", ascending=False)
+    df_financeur_benef["Montant_2"] = df_financeur_benef["Montant"].map('{:,.0f}'.format).str.replace(","," ") + " €"
 
     #Ajout montant total pour trier
     df_financeur_benef_total = df_financeur_benef.groupby("Bénéficiaire", as_index = False).agg({"Montant" : "sum"})
@@ -170,7 +171,7 @@ with tab2:
             barmode = 'stack',
             title = "Top 10 des structures subventionnées en 2022",
             color = "Financeur",
-            text = "Montant_x",
+            text = "Montant_2",
             color_discrete_map=colors_map)
     
 
@@ -189,7 +190,11 @@ with tab2:
 
 with tab3:
     df_financeur_etat = df_total[df_total["Financeur"] == "Etat"].groupby(["Bénéficiaire"], as_index = False)["Montant"].sum().sort_values(by = "Montant", ascending=False)
-    fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], values='Montant',
+    df_financeur_etat["Montant_2"] = df_financeur_etat["Montant"].map('{:,.0f}'.format).str.replace(","," ") + " €"
+
+
+    fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], 
+                     values='Montant_2',
                     color='Bénéficiaire', 
 #                    hover_data=['iso_alpha'],
                     color_continuous_scale='RdBu',
@@ -197,7 +202,7 @@ with tab3:
     )
     fig.update_layout(margin = dict(t=50, l=25, r=25, b=25),
                         autosize=True,
-#                        height=600
+                        height=600
     )
     fig.update_traces(textinfo = 'label+text+value')
     st.plotly_chart(fig, use_container_width=True)
