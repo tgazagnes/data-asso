@@ -187,9 +187,7 @@ with tab2:
         yaxis_title = None,
         legend=dict(
             yanchor="bottom",
-            y=0.01,
             xanchor="right",
-            x=0.99
             )
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -211,6 +209,5 @@ with tab3:
                         height=600
     )
     fig.update_traces(
-        text = 'Montant_2',
-        textinfo = 'label+text')
+        textinfo = 'label+value')
     st.plotly_chart(fig, use_container_width=True)
