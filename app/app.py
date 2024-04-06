@@ -7,7 +7,7 @@ import os
 # Page setting : wide layout
 st.set_page_config(
     layout = "wide",
-    page_title="Analyse subventions 2022 - Ville de Lyon"
+    page_title="Analyse subventions 2022 - Métropole de Lyon"
 )
 
 st.sidebar.caption(
@@ -25,11 +25,8 @@ Analyses des subventions accordées aux acteurs associatifs en 2022 (territoire 
 """
 )
 
-# Import des données
-PATH = "C:/Users/thiba/Documents/Projets data/Analyses_diverses/202404_Datasubv"
-
 df = pd.read_parquet(
-    os.path.join(PATH, "data", "base_consolidee.parquet")
+    os.path.join("/data", "base_consolidee.parquet")
 )
 
 # Copie des données pour transfo
