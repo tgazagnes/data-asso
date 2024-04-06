@@ -181,10 +181,16 @@ with tab2:
         height=600,
         uniformtext_minsize=8,
         uniformtext_mode="hide",
-        showlegend=False,
+        showlegend=True,
         xaxis_title="Montant des subventions accordées en 2022",
         yaxis=dict(autorange="reversed"),
-        yaxis_title = None
+        yaxis_title = None,
+        legend=dict(
+            yanchor="bottom",
+            y=0.01,
+            xanchor="right",
+            x=0.99
+            )
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -196,7 +202,6 @@ with tab3:
     fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], 
                      values='Montant',
                     color='Bénéficiaire',
-                    text = 'Montant_2',
 #                    hover_data=['iso_alpha'],
                     color_continuous_scale='RdBu',
 #                    color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop'])
@@ -205,5 +210,7 @@ with tab3:
                         autosize=True,
                         height=600
     )
-    fig.update_traces(textinfo = 'label+text')
+    fig.update_traces(
+        text = 'Montant_2',
+        textinfo = 'label+text')
     st.plotly_chart(fig, use_container_width=True)
