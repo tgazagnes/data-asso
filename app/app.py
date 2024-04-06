@@ -41,7 +41,7 @@ tab1, tab2, tab3= st.tabs(
     [
         "Statistiques d'ensemble :trophy:",
         "Top subventions :microscope:",
-        "Treemap subventions Etat :evergree_tree:"
+        "Treemap subventions Etat :evergreen_tree:"
     ]
 )
 
@@ -189,7 +189,7 @@ with tab2:
 
 with tab3:
     df_financeur_etat = df_total[df_total["Financeur"] == "Etat"].groupby(["Bénéficiaire"], as_index = False)["Montant"].sum().sort_values(by = "Montant", ascending=False)
-    fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat")], values='Montant',
+    fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], values='Montant',
                     color='Bénéficiaire', 
 #                    hover_data=['iso_alpha'],
                     color_continuous_scale='RdBu',
