@@ -187,8 +187,9 @@ with tab2:
         yaxis_title = None,
         legend=dict(
             yanchor="bottom",
-            xanchor="right",
-            )
+            y = 0.01,
+            xanchor="left",
+            x = 0.9)
     )
     st.plotly_chart(fig, use_container_width=True)
 
