@@ -194,8 +194,9 @@ with tab3:
 
 
     fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], 
-                     values='Montant_2',
-                    color='Bénéficiaire', 
+                     values='Montant',
+                    color='Bénéficiaire',
+                    text = 'Montant_2'
 #                    hover_data=['iso_alpha'],
                     color_continuous_scale='RdBu',
 #                    color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop'])
@@ -204,5 +205,5 @@ with tab3:
                         autosize=True,
                         height=600
     )
-    fig.update_traces(textinfo = 'label+text+value')
+    fig.update_traces(textinfo = 'label+text')
     st.plotly_chart(fig, use_container_width=True)
