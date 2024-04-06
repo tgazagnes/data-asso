@@ -196,7 +196,7 @@ with tab3:
     fig = px.treemap(df_financeur_etat, path=[px.Constant("Etat"), "Bénéficiaire"], 
                      values='Montant',
                     color='Bénéficiaire',
-                    text = 'Montant_2'
+                    text = 'Montant_2',
 #                    hover_data=['iso_alpha'],
                     color_continuous_scale='RdBu',
 #                    color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop'])
